@@ -1,0 +1,47 @@
+Sameera Balijepalli
+
+Methods not moved: 
+
+1. create(…) and parse(…) functions -- left in functions! 
+
+- My reasoning behind not moving these methods was because they don’t necessarily belong to any class. Although they do take in parameters  such as ImageStore imageStore and WorldModel world, I did not think that was simply enough to move all the functions to that specific class. Furthermore, I looked at the instance variables created within Functions and the variables created correlate with the create(…) and parse(…) functions so that was another reason behind not moving it.
+
+2. processImageLine(…), setAlpha(…), getImage(…), and load(…) — left in functions!
+
+- My reasoning behind leaving these functions in Functions.java was because they are either of void type or they are involved in the actual animation aspect of the program. I did not feel that they were a good fit to belong to any specific class because of the parameters they were taking in, their return type, and their function’s purpose.
+
+
+
+Placement of Ambiguous methods: 
+
+1. getCurrentImage(…) — placed in both Entity and Background!
+- I placed getCurrentImage(…) in both entity and background because the original method that was written in functions called both Entity and Background. So I decided to get rid of its parameters and have the function be reflective of its specific class/portray that by changing the way each class is referenced.
+
+2. loadImage(...) -- placed in ImageStore!
+
+- I placed loadImage(...) in ImageStore because it did take in ImageStore as one of its parameter. While I could have left it in Functions, I placed it in ImageStore due to the parameters it was taking in. 
+
+3. worldToViewport and viewportToWorld -- placed in Viewport! 
+- I placed both these functions in Viewport because they each had viewport as one of their parameter calls. Moreover, they take in int col and int row, which are both instance variables of the class Viewport. 
+
+4. nearestEntity -- placed in WorldModel! 
+- I placed this function in WorldModel because it takes in a list of Entity objects and a reference to WorldModel, which made most sense to place it here. In addition, the remaining parameters are all instances of the class WorldModel. 
+
+**Note: WorldModel has all the methods that include adding, removing, moving entities. This made the most sense to me logically since they each had WorldModel as one of their parameter calls. 
+
+5. createAnimationAction(...) and createActivityAction(...) -- placed in Entity!
+
+- I placed both of these functions in Entity because they not only used the Entity class but were also referenced within other functions present within entity so it was efficient to include it as a part of the entity class. 
+
+6. adjacent(...) and getNumFromRange(...) -- placed in Entity!
+- Although there aren't any specific calls to the Entity class within the adjacent and getRange function, it is referenced several times within entity so I moved it to the Entity class. Because it does not access any of the instance variables, I left both these functions as static. 
+
+7. moveEntity(...), removeAt(...), removeEntity(...) -- placed in WorldModel!
+- For the same reasons we placed addEntity(...) in WorldModel. They each made references to the WorldModel class so it only made sense to add it there. 
+
+8. All functions related to Occupants -- Placed in World Model!
+- These functions, about 5 of them, all made references to the worldModel class and accessed the variables of that specific class. 
+
+9. ScheduleEvent(...), unscheduleEvent(...) and removePendingEvent(...) -- placed in EventScheduler! 
+- Not only do these functions aid in updating the events on time/executing the correct ones. They also made calls to the event scheduler class so I added them on here. 
+
